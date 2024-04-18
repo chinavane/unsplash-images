@@ -1,0 +1,18 @@
+{
+    "sourceFile": "t.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1713250391082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1713250391082,
+            "name": "Commit-0",
+            "content": "// 引入Node.js内置的fs模块用来读取文件\r\nconst fs = require(\"fs\");\r\n\r\n// 定义正则表达式来匹配第一个和第二个\"##\"之间的内容\r\nconst contentPattern = /^##[^#]*?##(?=.*##)/ms;\r\n\r\n// 读取test.md文件\r\nfs.readFile(\"test.md\", \"utf8\", (err, data) => {\r\n  if (err) {\r\n    console.error(\"Error reading file:\", err);\r\n    return;\r\n  }\r\n\r\n  // 使用正则表达式提取内容\r\n  const match = contentPattern.exec(data);\r\n  if (match) {\r\n    const extractedContent = match[1].trim();\r\n    console.log(\"提取到的内容：\", extractedContent);\r\n  } else {\r\n    console.log(\"未能找到匹配的内容\");\r\n  }\r\n});\r\n"
+        }
+    ]
+}

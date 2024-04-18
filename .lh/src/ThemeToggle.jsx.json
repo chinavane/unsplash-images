@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/ThemeToggle.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1713186675935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1713187016985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import React from \"react\";\r\n+import { useGlobalContext } from \"./context\";\r\n \r\n const ThemeToggle = () => {\r\n+  console.log(useGlobalContext());\r\n   return <div>ThemeToggle</div>;\r\n };\r\n \r\n export default ThemeToggle;\r\n"
+                },
+                {
+                    "date": 1713187044468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import React from \"react\";\r\n import { useGlobalContext } from \"./context\";\r\n \r\n const ThemeToggle = () => {\r\n-  console.log(useGlobalContext());\r\n+    const { greet } = useGlobalContext();\r\n+  console.log(greet);\r\n   return <div>ThemeToggle</div>;\r\n };\r\n \r\n export default ThemeToggle;\r\n"
+                },
+                {
+                    "date": 1713192006843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import {BsFillMoonFill, BsFillSunFill} from 'react-icons/bs'\r\n+\r\n import React from \"react\";\r\n import { useGlobalContext } from \"./context\";\r\n \r\n const ThemeToggle = () => {\r\n"
+                },
+                {
+                    "date": 1713192016910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,4 @@\n-import { BsFillMoonFill, BsFillSunFill } from \"react-icons/bs\";\r\n-\r\n import React from \"react\";\r\n import { useGlobalContext } from \"./context\";\r\n \r\n const ThemeToggle = () => {\r\n"
+                },
+                {
+                    "date": 1713192342587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs'\r\n+\r\n import React from \"react\";\r\n import { useGlobalContext } from \"./context\";\r\n \r\n const ThemeToggle = () => {\r\n"
+                }
+            ],
+            "date": 1713186675935,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nconst ThemeToggle = () => {\r\n  return <div>ThemeToggle</div>;\r\n};\r\n\r\nexport default ThemeToggle;\r\n"
+        }
+    ]
+}

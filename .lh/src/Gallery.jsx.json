@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/Gallery.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1713186695801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1713324646728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n \r\n const Gallery = () => {\r\n-  return <div>Gallery</div>;\r\n+  return <div className=\"w-[556px]\">Gallery</div>;\r\n };\r\n \r\n export default Gallery;\r\n"
+                },
+                {
+                    "date": 1713325987518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n \r\n const Gallery = () => {\r\n-  return <div className=\"w-[556px]\">Gallery</div>;\r\n+  return <div>Gallery</div>;\r\n };\r\n \r\n export default Gallery;\r\n"
+                },
+                {
+                    "date": 1713352497592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n import React from \"react\";\r\n \r\n+const url =\r\n+  \"https://api.unsplash.com/search/photos?page=1&per_page=2&query=office&client_id=z83Elmv4n0xf7llSICyCEp6TtZmV6imwpKl11Zr3O7g\";\r\n+\r\n const Gallery = () => {\r\n   return <div>Gallery</div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1713352510033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n \r\n const url =\r\n-  \"https://api.unsplash.com/search/photos?page=1&per_page=2&query=office&client_id=z83Elmv4n0xf7llSICyCEp6TtZmV6imwpKl11Zr3O7g\";\r\n+  \"https://api.unsplash.com/search/photos?query=office&client_id=z83Elmv4n0xf7llSICyCEp6TtZmV6imwpKl11Zr3O7g\";\r\n \r\n const Gallery = () => {\r\n   return <div>Gallery</div>;\r\n };\r\n"
+                },
+                {
+                    "date": 1713352549772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import React from \"react\";\r\n+import axios from \"axios\";\r\n+import { useQuery } from \"@tanstack/react-query\";\r\n \r\n const url =\r\n   \"https://api.unsplash.com/search/photos?query=office&client_id=z83Elmv4n0xf7llSICyCEp6TtZmV6imwpKl11Zr3O7g\";\r\n \r\n"
+                },
+                {
+                    "date": 1713352620308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,17 @@\n const url =\r\n   \"https://api.unsplash.com/search/photos?query=office&client_id=z83Elmv4n0xf7llSICyCEp6TtZmV6imwpKl11Zr3O7g\";\r\n \r\n const Gallery = () => {\r\n+\r\n+  const response = useQuery({\r\n+    queryKey:[\"images\"],\r\n+    queryFn:async ()=>{\r\n+      const result = await axios.get(url);\r\n+      console.log(result);\r\n+    }\r\n+  })\r\n+\r\n   return <div>Gallery</div>;\r\n };\r\n \r\n export default Gallery;\r\n"
+                },
+                {
+                    "date": 1713352634746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n       console.log(result);\r\n     },\r\n   });\r\n \r\n+  console.log(response);\r\n+\r\n   return <div>Gallery</div>;\r\n };\r\n \r\n export default Gallery;\r\n"
+                },
+                {
+                    "date": 1713352709545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const response = useQuery({\r\n     queryKey: [\"images\"],\r\n     queryFn: async () => {\r\n       const result = await axios.get(url);\r\n-      console.log(result);\r\n+      return result.data;\r\n     },\r\n   });\r\n \r\n   console.log(response);\r\n"
+                }
+            ],
+            "date": 1713186695801,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nconst Gallery = () => {\r\n  return <div>Gallery</div>;\r\n};\r\n\r\nexport default Gallery;\r\n"
+        }
+    ]
+}

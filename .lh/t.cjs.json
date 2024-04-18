@@ -1,0 +1,46 @@
+{
+    "sourceFile": "t.cjs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1713250446007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1713250540615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n \r\n // 定义正则表达式来匹配第一个和第二个\"##\"之间的内容\r\n const contentPattern = /^##[^#]*?##(?=.*##)/ms;\r\n \r\n-// 读取test.md文件\r\n fs.readFile(\"test.md\", \"utf8\", (err, data) => {\r\n   if (err) {\r\n     console.error(\"Error reading file:\", err);\r\n     return;\r\n@@ -13,10 +12,14 @@\n \r\n   // 使用正则表达式提取内容\r\n   const match = contentPattern.exec(data);\r\n   if (match) {\r\n-    const extractedContent = match[1].trim();\r\n-    console.log(\"提取到的内容：\", extractedContent);\r\n+    if (match[1]) {\r\n+      const extractedContent = match[1].trim();\r\n+      console.log(\"提取到的内容：\", extractedContent);\r\n+    } else {\r\n+      console.log(\"未能找到匹配的具体内容\");\r\n+    }\r\n   } else {\r\n-    console.log(\"未能找到匹配的内容\");\r\n+    console.log(\"未能找到匹配的“##”对\");\r\n   }\r\n-});\r\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1713250633056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,2 @@\n-// 引入Node.js内置的fs模块用来读取文件\r\n-const fs = require(\"fs\");\r\n+写一个test.js去读取test.md文件，然后利用正则实现第一个“##”与第二个“##”之间的内容的提取\r\n \r\n-// 定义正则表达式来匹配第一个和第二个\"##\"之间的内容\r\n-const contentPattern = /^##[^#]*?##(?=.*##)/ms;\r\n-\r\n-fs.readFile(\"test.md\", \"utf8\", (err, data) => {\r\n-  if (err) {\r\n-    console.error(\"Error reading file:\", err);\r\n-    return;\r\n-  }\r\n-\r\n-  // 使用正则表达式提取内容\r\n-  const match = contentPattern.exec(data);\r\n-  if (match) {\r\n-    if (match[1]) {\r\n-      const extractedContent = match[1].trim();\r\n-      console.log(\"提取到的内容：\", extractedContent);\r\n-    } else {\r\n-      console.log(\"未能找到匹配的具体内容\");\r\n-    }\r\n-  } else {\r\n-    console.log(\"未能找到匹配的“##”对\");\r\n-  }\r\n-});\r\n"
+                },
+                {
+                    "date": 1713250644052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,20 @@\n-写一个test.js去读取test.md文件，然后利用正则实现第一个“##”与第二个“##”之间的内容的提取\r\n+const fs = require(\"fs\");\r\n \r\n+// 读取Markdown文件的内容\r\n+fs.readFile(\"test.md\", \"utf8\", (err, data) => {\r\n+  if (err) {\r\n+    console.error(\"文件读取失败:\", err);\r\n+    return;\r\n+  }\r\n+\r\n+  // 使用正则表达式找到第一个和第二个“##”之间的内容\r\n+  const pattern = /##.*?\\n([\\s\\S]*?)\\n##/;\r\n+  const match = pattern.exec(data);\r\n+\r\n+  if (match) {\r\n+    console.log(\"提取的内容是:\");\r\n+    console.log(match[1]);\r\n+  } else {\r\n+    console.log(\"没有找到匹配的内容\");\r\n+  }\r\n+});\r\n"
+                },
+                {
+                    "date": 1713250712774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const fs = require(\"fs\");\r\n \r\n // 读取Markdown文件的内容\r\n-fs.readFile(\"test.md\", \"utf8\", (err, data) => {\r\n+fs.readFile(\"./test.md\", \"utf8\", (err, data) => {\r\n   if (err) {\r\n     console.error(\"文件读取失败:\", err);\r\n     return;\r\n   }\r\n"
+                },
+                {
+                    "date": 1713250719859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n const fs = require(\"fs\");\r\n \r\n // 读取Markdown文件的内容\r\n fs.readFile(\"./test.md\", \"utf8\", (err, data) => {\r\n+  console.log(data)\r\n   if (err) {\r\n     console.error(\"文件读取失败:\", err);\r\n     return;\r\n   }\r\n"
+                },
+                {
+                    "date": 1713250736976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n const fs = require(\"fs\");\r\n \r\n // 读取Markdown文件的内容\r\n fs.readFile(\"./test.md\", \"utf8\", (err, data) => {\r\n-  console.log(data);\r\n   if (err) {\r\n     console.error(\"文件读取失败:\", err);\r\n     return;\r\n   }\r\n \r\n   // 使用正则表达式找到第一个和第二个“##”之间的内容\r\n   const pattern = /##.*?\\n([\\s\\S]*?)\\n##/;\r\n   const match = pattern.exec(data);\r\n+  console.log(match);\r\n \r\n   if (match) {\r\n     console.log(\"提取的内容是:\");\r\n     console.log(match[1]);\r\n"
+                },
+                {
+                    "date": 1713251012825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,21 @@\n const fs = require(\"fs\");\r\n \r\n-// 读取Markdown文件的内容\r\n-fs.readFile(\"./test.md\", \"utf8\", (err, data) => {\r\n+// 读取Markdown文件\r\n+fs.readFile(\"your-file.md\", \"utf8\", (err, data) => {\r\n   if (err) {\r\n-    console.error(\"文件读取失败:\", err);\r\n+    console.error(\"Error reading the file:\", err);\r\n     return;\r\n   }\r\n \r\n-  // 使用正则表达式找到第一个和第二个“##”之间的内容\r\n-  const pattern = /##.*?\\n([\\s\\S]*?)\\n##/;\r\n-  const match = pattern.exec(data);\r\n-  console.log(match);\r\n+  // 使用正则表达式提取##标题\r\n+  const titles = data.match(/##\\s*(.*)/g);\r\n \r\n-  if (match) {\r\n-    console.log(\"提取的内容是:\");\r\n-    console.log(match[1]);\r\n+  if (titles) {\r\n+    // 清除\"## \"前缀\r\n+    const cleanedTitles = titles.map((title) => title.replace(\"## \", \"\"));\r\n+\r\n+    console.log(cleanedTitles);\r\n   } else {\r\n-    console.log(\"没有找到匹配的内容\");\r\n+    console.log(\"No titles found in the Markdown file.\");\r\n   }\r\n });\r\n"
+                }
+            ],
+            "date": 1713250446007,
+            "name": "Commit-0",
+            "content": "// 引入Node.js内置的fs模块用来读取文件\r\nconst fs = require(\"fs\");\r\n\r\n// 定义正则表达式来匹配第一个和第二个\"##\"之间的内容\r\nconst contentPattern = /^##[^#]*?##(?=.*##)/ms;\r\n\r\n// 读取test.md文件\r\nfs.readFile(\"test.md\", \"utf8\", (err, data) => {\r\n  if (err) {\r\n    console.error(\"Error reading file:\", err);\r\n    return;\r\n  }\r\n\r\n  // 使用正则表达式提取内容\r\n  const match = contentPattern.exec(data);\r\n  if (match) {\r\n    const extractedContent = match[1].trim();\r\n    console.log(\"提取到的内容：\", extractedContent);\r\n  } else {\r\n    console.log(\"未能找到匹配的内容\");\r\n  }\r\n});\r\n"
+        }
+    ]
+}

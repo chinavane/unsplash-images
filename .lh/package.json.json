@@ -1,0 +1,18 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1713256743767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1713256743767,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"stock-images\",\n  \"private\": true,\n  \"version\": \"0.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"@tanstack/react-query\": \"^4.28.0\",\n    \"@tanstack/react-query-devtools\": \"^4.29.1\",\n    \"axios\": \"^1.3.4\",\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\",\n    \"react-icons\": \"^4.8.0\",\n  },\n  \"devDependencies\": {\n    \"@types/react\": \"^18.0.28\",\n    \"@types/react-dom\": \"^18.0.11\",\n    \"@vitejs/plugin-react\": \"^3.1.0\",\n    \"vite\": \"^4.2.0\"\n  }\n}\n"
+        }
+    ]
+}

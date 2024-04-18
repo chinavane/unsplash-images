@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/main.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1713186987977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1713351736533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n-import './index.css';\n+import \"./index.css\";\n \n-import App from './App';\n-import { AppProvider } from './context';\n-import React from 'react';\n-import ReactDOM from 'react-dom/client';\n+import App from \"./App\";\n+import { AppProvider } from \"./context\";\n+import React from \"react\";\n+import ReactDOM from \"react-dom/client\";\n \n ReactDOM.createRoot(document.getElementById(\"root\")).render(\n   <AppProvider>\n     <App />\n"
+                },
+                {
+                    "date": 1713352140078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import \"./index.css\";\n \n+import { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\n+\n import App from \"./App\";\n import { AppProvider } from \"./context\";\n import React from \"react\";\n import ReactDOM from \"react-dom/client\";\n"
+                },
+                {
+                    "date": 1713352157316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n import { AppProvider } from \"./context\";\n import React from \"react\";\n import ReactDOM from \"react-dom/client\";\n \n+const queryClient = new QueryClient();\n+\n ReactDOM.createRoot(document.getElementById(\"root\")).render(\n   <AppProvider>\n     <App />\n   </AppProvider>\n"
+                },
+                {
+                    "date": 1713352191338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,9 @@\n const queryClient = new QueryClient();\n \n ReactDOM.createRoot(document.getElementById(\"root\")).render(\n   <AppProvider>\n-    <App />\n+    <QueryClientProvider client={queryClient}>\n+      <App />\n+    </QueryClientProvider>\n   </AppProvider>\n );\n"
+                },
+                {
+                    "date": 1713354425463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,14 +5,16 @@\n import App from \"./App\";\n import { AppProvider } from \"./context\";\n import React from \"react\";\n import ReactDOM from \"react-dom/client\";\n+import { ReactQueryDevtools } from \"@tanstack/react-query-devtools/build/lib/devtools\";\n \n const queryClient = new QueryClient();\n \n ReactDOM.createRoot(document.getElementById(\"root\")).render(\n   <AppProvider>\n     <QueryClientProvider client={queryClient}>\n       <App />\n+      <ReactQueryDevtools initialIsOpen={true}/>\n     </QueryClientProvider>\n   </AppProvider>\n );\n"
+                },
+                {
+                    "date": 1713354446963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,8 @@\n ReactDOM.createRoot(document.getElementById(\"root\")).render(\n   <AppProvider>\n     <QueryClientProvider client={queryClient}>\n       <App />\n-      <ReactQueryDevtools initialIsOpen={true} />\n+      <ReactQueryDevtools initialIsOpen={true}/>\n     </QueryClientProvider>\n   </AppProvider>\n );\n"
+                },
+                {
+                    "date": 1713354511041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n import App from \"./App\";\n import { AppProvider } from \"./context\";\n import React from \"react\";\n import ReactDOM from \"react-dom/client\";\n-import { ReactQueryDevtools } from \"@tanstack/react-query-devtools/build/lib/devtools\";\n \n const queryClient = new QueryClient();\n \n ReactDOM.createRoot(document.getElementById(\"root\")).render(\n"
+                }
+            ],
+            "date": 1713186987977,
+            "name": "Commit-0",
+            "content": "import './index.css';\n\nimport App from './App';\nimport { AppProvider } from './context';\nimport React from 'react';\nimport ReactDOM from 'react-dom/client';\n\nReactDOM.createRoot(document.getElementById(\"root\")).render(\n  <AppProvider>\n    <App />\n  </AppProvider>\n);\n"
+        }
+    ]
+}
